@@ -1,3 +1,6 @@
+# CHARON :
+# socket program for create simple tcp revese shell on port 5050 for server [Best Shell]
+
 from socket import *
 
 server = "0.0.0.0"
@@ -8,7 +11,7 @@ s = socket(AF_INET, SOCK_STREAM)
 s.bind((ADDR))
 s.listen(5)
 
-print("[+] server is running... ")
+print("[+] server is running on port 5050...")
 
 c, adr = s.accept()
 print("[+] onnected to : %s \n" % str(adr))

