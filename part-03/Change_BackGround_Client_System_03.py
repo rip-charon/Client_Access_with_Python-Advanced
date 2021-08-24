@@ -14,7 +14,7 @@ s.listen(5)
 
 c, address = s.accept()
 
-s.sendall("image.jpg".encode('utf-8'))
+s.sendall("image.jpg".encode('utf-8')) # copy this picture in the client system
 
 print(c.recv(1024).decode('utf-8'))
 
