@@ -16,8 +16,13 @@ print("[+] onnected to : %s \n" % str(adr))
 while True:
      
     shell = input(c.recv(1024).decode('utf-8'))
+
+    if shell == None or shell == '' or shell == '\n':
+        c.sendall('-'.encode('utf-8'))
+        continue
+
     c.sendall(shell.encode('utf-8'))
     data = c.recv(102343).decode('utf-8')
-    print(data)
+    print(data+"\n")
 
 c.close
