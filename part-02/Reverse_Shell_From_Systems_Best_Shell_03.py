@@ -14,7 +14,7 @@ s.listen(5)
 print("[+] server is running on port 5050...")
 
 c, adr = s.accept()
-print("[+] onnected to : %s \n" % str(adr))
+print("[+] connected to : %s \n" % str(adr))
 
 while True:
      
