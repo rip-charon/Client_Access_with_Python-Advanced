@@ -1,15 +1,18 @@
-import socket                   # Import socket module
+import socket              
 
-port = 5050                     # Reserve a port for your service.
-s = socket.socket()             # Create a socket object
-host = socket.gethostname()     # Get local machine name
-s.bind((host, port))            # Bind to the port
-s.listen(5)                     # Now wait for client connection.
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)          
+
+host = "0.0.0.0"
+port = 5050
+ADDR1 = (host,port)
+
+s.bind((ADDR1))            
+s.listen(5)                     
 
 print('[+] Server listening on port 5050...')
 
 while True:
-    conn, addr = s.accept()     # Establish connection with client.
+    conn, addr = s.accept()     
     print('[+] Got connection from %s !'% str(addr))
     data = conn.recv(1024).decode('utf-8')
     print('[+] Server received', repr(data))
