@@ -19,7 +19,7 @@ while True:
     print("[+] Connected to %s !" % str(address))
 
     i=1
-    f = open("jpg.jpg",'wb') #open in binary
+    f = open('file_'+ str(i)+".jpg",'wb') #open in binary
     i=i+1
     while (True):       
     # receive data and write it to file
