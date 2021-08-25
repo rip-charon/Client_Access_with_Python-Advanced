@@ -1,12 +1,8 @@
-# client.py
+import socket                   
 
-import socket                   # Import socket module
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)       
 
-s = socket.socket()             # Create a socket object
-host = socket.gethostname()     # Get local machine name
-port = 5050                    # Reserve a port for your service.
-
-s.connect(("192.169.1.115", port))
+s.connect(("192.198.1.115", 5050))
 s.send("Hello server!".encode('utf-8'))
 
 with open('received_file', 'wb') as f:
