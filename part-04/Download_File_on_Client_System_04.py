@@ -1,5 +1,5 @@
 #CHARON :
-# simple client socket program for reading .txt file content and send it to server
+# simple client socket program for reading .jpg file content and send it to server
 
 import socket
 

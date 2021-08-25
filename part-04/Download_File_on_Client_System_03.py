@@ -1,5 +1,5 @@
 #CHARON :
-# simple server socket program for grtting .txt file content from client and make the file
+# simple server socket program for gtting .txt file content from client and make the file
 
 from socket import *
 
