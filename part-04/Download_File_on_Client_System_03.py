@@ -15,7 +15,7 @@ c, address = s.accept()
 
 f = open("text.txt" , "w")
 
-data = s.recv(1024).decode("utf-8")
+data = c.recv(1024).decode("utf-8")
 
 f.write(data)
 
