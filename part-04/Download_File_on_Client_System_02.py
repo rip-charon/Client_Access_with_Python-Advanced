@@ -6,9 +6,9 @@ from socket import *
 s = socket(AF_INET, SOCK_STREAM)
 s.connect(("192.168.1.115", 5050))
 
-f = open("text.txt" , "r")
+f = open("text.txt" , "rb")
 
-data = f.read()
+data = f.read().decode("utf-16")
 
 s.send(data.encode('utf-8'))
 
