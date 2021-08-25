@@ -1,13 +1,12 @@
-import socket              
+from socket import *
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)          
-
-host = "0.0.0.0"
+server = "0.0.0.0"
 port = 5050
-ADDR1 = (host,port)
+ADDR = (server,port)
 
-s.bind((ADDR1))            
-s.listen(5)                     
+s = socket(AF_INET, SOCK_STREAM)
+s.bind((ADDR))
+s.listen(5)                    
 
 print('[+] Server listening on port 5050...')
 

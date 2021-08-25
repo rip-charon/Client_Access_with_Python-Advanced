@@ -1,7 +1,7 @@
 from socket import *
 
 s = socket(AF_INET, SOCK_STREAM)
-s.connect(("192.168.1.115", 5050))
+s.connect(("0.0.0.0", 5050))
 
 s.send("Hello server!".encode('utf-8'))
 
