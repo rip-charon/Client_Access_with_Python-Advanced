@@ -1,3 +1,6 @@
+#CHARON :
+# simple program for take screenshot from windows 
+
 from PIL import ImageGrab
 
 file = open('screen.png', 'w')
