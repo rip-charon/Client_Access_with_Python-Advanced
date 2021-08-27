@@ -1,0 +1,7 @@
+1 :
+
+    python .\pyinstaller\pyinstaller -i <icon> -F <python-file>
+
+2 : 
+
+    pyinstaller -i <icon> -F <python-file>

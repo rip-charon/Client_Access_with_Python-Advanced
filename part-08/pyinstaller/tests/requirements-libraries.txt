@@ -1,0 +1,74 @@
+# This is the pip requirements file for extensive
+# PyInstaller testing.
+#
+# Example (assuming current dir is PyInstaller's top-level source dir)::
+#
+#   python -m pip install -r tests/requirements-libraries.txt  # extensive
+
+# include requirements for base testing
+-r requirements-tools.txt
+
+
+# Needs work
+# ----------
+# These packages, if updated, produce test failures. Work needs to be done on
+# these hooks. Any requirement in this list should be followed by the
+# `# pyup: ignore <https://pyup.io/docs/bot/filter/>`_ comment.
+#
+# - v. 2.2 and above fails.
+Django==2.1.8  # pyup: ignore
+# - v 21.1.0 fails; earlier versions not tested.
+keyring==19.2.0  # pyup: ignore
+
+
+# Working
+# -------
+# These packages work with no (known) issues.
+babel==2.9.1
+future==0.18.2
+gevent==21.8.0
+pygments==2.10.0
+pyside2==5.15.2
+pyside6==6.1.0
+pyqt5==5.15.4
+pyqtwebengine==5.15.4
+pyqt6==6.1.0
+python-dateutil==2.8.2
+pytz==2021.1
+requests==2.26.0
+# simplejson is used for text_c_extension
+simplejson==3.17.4
+sphinx==2.4.4 # pyup: ignore
+# Required for test_namespace_package
+sqlalchemy==1.4.23
+zope.interface==5.4.0
+Pillow==8.3.1
+
+
+# Python versions not supported / supported for older package versions
+# -------------------------------------------------------
+
+# iPython 7.17 dropped support for python 3.6
+# https://ipython.readthedocs.io/en/stable/whatsnew/version7.html#ipython-7-17
+ipython==7.26.0; python_version > '3.6'
+ipython==7.16.1; python_version <= '3.6'  # pyup: ignore
+
+# pandas also dropped support
+pandas==1.3.2; python_version > '3.6'
+pandas==1.1.5; python_version <= '3.6'  # pyup: ignore
+
+# so did numpy
+numpy==1.21.2; python_version > '3.6'
+numpy==1.19.4; python_version <= '3.6'  # pyup: ignore
+
+# scipy too
+scipy==1.7.1; python_version > '3.6'
+scipy==1.5.4; python_version <= '3.6'  # pyup: ignore
+
+# and matplotlib
+matplotlib==3.4.3; python_version > '3.6'
+matplotlib==3.3.4; python_version <= '3.6'  # pyup: ignore
+
+# Install PyInstaller Hook Sample, to ensure that tests declared in
+# entry-points are discovered.
+https://github.com/pyinstaller/hooksample/archive/v4.0rc1.zip  # pyup: ignore
