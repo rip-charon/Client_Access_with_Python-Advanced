@@ -11,6 +11,8 @@ s = socket.socket()
 s.bind((ADDR))
 s.listen(10) # Accepts up to 10 connections.
 
+i=1
+
 print("[+] Server start running on port 5050")
 
 while True:
@@ -18,11 +20,9 @@ while True:
 
     print("[+] Connected to %s !" % str(address))
 
-    i=1
     f = open('file_'+ str(i)+".png",'wb') #open in binary
     print("[+] FILE OPEN : file_"+ str(i)+".png")
     print("[+] Start receiveing")
-    i=i+1
     while (True):       
     # receive data and write it to file
         l = sc.recv(1024)
@@ -31,14 +31,15 @@ while True:
                 f.write(l)
                 l = sc.recv(1024)
             except:
-                sc.close()
-                print("[+] Disconnected from %s !" % str(address))
                 break
         print("[+] Received")
         f.close()
         print("[+] FILE CLOSE : file_"+ str(i)+".png")
         break
 
+    sc.close()
+    print("[+] Disconnected from %s !" % str(address))
     print("[+] Waiting for new file...")
+    i=i+1
 
 s.close()
